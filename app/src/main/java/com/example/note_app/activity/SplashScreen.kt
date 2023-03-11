@@ -25,7 +25,17 @@ class SplashScreen : AppCompatActivity() {
 
 //      Go to splash screen in 2000 s
         Handler(Looper.getMainLooper()!!).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            val preference = getSharedPreferences("PREFERENCE", MODE_PRIVATE);
+            val ranVar: String = preference.getString("ran","").toString();
+
+            if(ranVar.equals("Yes")){
+                startActivity(Intent(this, MainActivity::class.java))
+            }else{
+                val editor = preference.edit();
+                editor.putString("ran","Yes");
+                editor.apply();
+                startActivity(Intent(this, onboardingScreen::class.java))
+            }
         },5000)
 
     }

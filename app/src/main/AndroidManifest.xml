@@ -13,13 +13,19 @@
         android:theme="@style/Theme.Note_App"
         tools:targetApi="33">
         <activity
+            android:name=".activity.onboardingScreen"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".activity.update_screen"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
             android:name=".activity.add_screen"
             android:exported="false">
