@@ -3,7 +3,9 @@ package com.example.note_app.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.note_app.R
 import com.example.note_app.models.NoteModel
@@ -24,7 +26,9 @@ class updateHistoryAdapter(val list:MutableList<UpdateHistoryModel>):RecyclerVie
         status.add("Đang thực hiện");
         status.add("Đã hoàn thành");
 
+
         holder.itemView.apply {
+            val noteColors      = holder.itemView.context.resources.getIntArray(R.array.note_item_colors);
             holder.itemView.findViewById<TextView>(R.id.txtUpdateDate).text = listData[position].update_day;
             holder.itemView.findViewById<TextView>(R.id.txtStatusOne).text = status[ listData[position].status_one];
             holder.itemView.findViewById<TextView>(R.id.txtStatusTwo).text = status[listData[position].status_two];
@@ -33,6 +37,7 @@ class updateHistoryAdapter(val list:MutableList<UpdateHistoryModel>):RecyclerVie
             holder.itemView.findViewById<TextView>(R.id.txtStatusTwo).setTextColor(statusColor[listData[position].status_two]);
 
             holder.itemView.findViewById<TextView>(R.id.txtUpdateComment).text = listData[position].comment;
+            holder.itemView.findViewById<LinearLayout>(R.id.history_item).setBackgroundColor(noteColors[position%5]);
         }
     }
 

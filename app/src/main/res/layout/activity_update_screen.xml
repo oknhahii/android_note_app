@@ -24,7 +24,7 @@
         android:id="@+id/nvNavigation"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@color/status_bgr_focus"
+        android:background="@color/primary_color"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_marginLeft="20dp"
-            android:background="@color/status_bgr_focus"
+            android:background="@android:color/transparent"
             android:layout_marginTop="15dp"
             android:layout_weight="1"
             app:layout_constraintStart_toStartOf="parent"
@@ -181,7 +181,7 @@
             android:id="@+id/rvUpdateHistory"
             android:layout_width="360dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_height="380dp">
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>

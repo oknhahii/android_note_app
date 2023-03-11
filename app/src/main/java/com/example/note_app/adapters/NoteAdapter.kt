@@ -63,10 +63,11 @@ class NoteAdapter(var list:MutableList<NoteModel>,val onClickNote: NoteInterface
             val diff =  endDate.time - currentDate.time;
             Log.d("12345",currentDate.toString());
             Log.d("12345",endDate.toString());
+            Log.d("12345",diff.toString());
 
             Log.d("status",status.toString())
             Log.d("status",(status!=2.toInt()).toString());
-            if((diff.toInt() <= 0) && (status != 2.toInt())){
+            if((diff <= 0.toLong()) && (status != 2.toInt())){
                 holder.itemView.findViewById<FloatingActionButton>(R.id.notificationIcon).visibility = View.VISIBLE;
             }
 

@@ -29,7 +29,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#514983">
+            android:background="@color/primary_color">
 
             <TextView
                 android:id="@+id/textView4"
@@ -155,7 +155,8 @@
             android:id="@+id/rsNotes"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="10dp">
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="20dp">
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 

@@ -44,7 +44,7 @@
                 android:layout_marginTop="12dp"
                 android:paddingRight="26dp"
                 android:text="School notes"
-                android:textColor="@color/bgr_color"
+                android:textColor="@color/text_color"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
