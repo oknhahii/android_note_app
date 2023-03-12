@@ -18,6 +18,7 @@ import com.example.note_app.helper.MyDBHelper
 import com.example.note_app.models.NoteModel
 import java.text.SimpleDateFormat
 import java.util.Calendar
+import kotlin.math.log
 
 private lateinit var binding: ActivityAddScreenBinding
 @Suppress("DEPRECATION")
@@ -42,7 +43,16 @@ class add_screen : AppCompatActivity() {
         val iii = intent;
         val bundle = iii?.extras;
         if(bundle != null){
+            val sdfDate = SimpleDateFormat("dd-MM-yyyy");
+            val sdf = SimpleDateFormat("dd-MM-yyyy HH:mm");
+            val realDate =  sdfDate.parse(bundle.getString("end_date"));
+            val fullDate =  sdf.parse(bundle.getString("end_date"));
+            date = sdfDate.format(realDate);
+            time = fullDate.hours.toString() + ":" + fullDate.minutes.toString();
             status = bundle.getInt("status");
+            Log.d("12345",time);
+            Log.d("12345",date);
+
 //            fill data to form
             fillDataToForm(binding,bundle);
 //            update edited data
@@ -84,13 +94,9 @@ class add_screen : AppCompatActivity() {
         }
         binding.txtDate.visibility = View.VISIBLE;
         binding.txtTime.visibility = View.VISIBLE;
-        val sdfDate = SimpleDateFormat("dd-MM-yyyy");
-        val sdf = SimpleDateFormat("dd-MM-yyyy HH:mm");
-        val realDate =  sdfDate.parse(bundle.getString("end_date"));
-        val fullDate =  sdf.parse(bundle.getString("end_date"));
-        binding.txtDate.setText(sdfDate.format(realDate));
-        val timeEle = fullDate.hours.toString() + " : " + fullDate.minutes.toString();
-        binding.txtTime.setText(timeEle);
+
+        binding.txtDate.setText(date);
+        binding.txtTime.setText(time);
 
         binding.txtContent.setText(bundle.getString("desc"))
         binding.btnAdd.setImageResource(R.drawable.ic_baseline_done_24);
