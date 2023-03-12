@@ -61,14 +61,16 @@ class NoteAdapter(var list:MutableList<NoteModel>,val onClickNote: NoteInterface
             holder.itemView.findViewById<TextView>(R.id.txtEndDate).text = listData[position].end_day;
             holder.itemView.findViewById<CardView>(R.id.noteItem).setCardBackgroundColor(noteColors[position%5]);
             val diff =  endDate.time - currentDate.time;
+            Log.d("12345","===========================================================================");
+            Log.d("12345",position.toString());
             Log.d("12345",currentDate.toString());
             Log.d("12345",endDate.toString());
             Log.d("12345",diff.toString());
-
-            Log.d("status",status.toString())
-            Log.d("status",(status!=2.toInt()).toString());
             if((diff <= 0.toLong()) && (status != 2.toInt())){
+                Log.d("12345",position.toString()+"-->");
                 holder.itemView.findViewById<FloatingActionButton>(R.id.notificationIcon).visibility = View.VISIBLE;
+            }else{
+                holder.itemView.findViewById<FloatingActionButton>(R.id.notificationIcon).visibility = View.GONE;
             }
 
 //          Handle click event
